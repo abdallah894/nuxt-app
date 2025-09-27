@@ -58,6 +58,9 @@
 </template>
 
 <script setup>
+// Import the social meta composable
+import { useSocialMeta } from '~/composables/useSocialMeta'
+
 // Use the social meta composable
 const socialMeta = useSocialMeta({
   title: 'Blog - Latest Articles & Insights',

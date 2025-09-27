@@ -55,6 +55,9 @@
 </template>
 
 <script setup>
+// Import the social meta composable
+import { useSocialMeta } from '~/composables/useSocialMeta'
+
 // Use the social meta composable for this debug page
 const socialMeta = useSocialMeta({
   title: 'Open Graph Debug Page - My Website',

@@ -10,12 +10,12 @@ export const useSocialMeta = (options: {
   
   // Get the current URL properly
   const getFullUrl = (path?: string) => {
-    if (process.server) {
+    if (import.meta.server) {
       // On server, try to get URL from headers or env
       const nuxtApp = useNuxtApp()
       const event = nuxtApp.ssrContext?.event
       const host = event?.node?.req?.headers?.host || 
-                   process.env.NUXT_PUBLIC_SITE_URL || 
+                   useRuntimeConfig().public.siteUrl || 
                    'test-6wdtadsvg-amrs-projects-d74c7769.vercel.app'
       const protocol = host.includes('localhost') ? 'http' : 'https'
       return `${protocol}://${host}${path || route.path}`
