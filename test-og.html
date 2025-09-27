@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhatsApp Link Preview Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .test-section { background: #f5f5f5; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .url-input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 20px; padding: 15px; background: white; border-radius: 4px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>🔍 WhatsApp Link Preview Tester</h1>
+    
+    <div class="test-section">
+        <h2>Test Your URLs</h2>
+        <p>Copy and paste these URLs into the testing tools below:</p>
+        
+        <div>
+            <strong>Blog Page:</strong><br>
+            <input type="text" class="url-input" value="https://test-6wdtadsvg-amrs-projects-d74c7769.vercel.app/blog" readonly>
+        </div>
+        
+        <div>
+            <strong>Home Page:</strong><br>
+            <input type="text" class="url-input" value="https://test-6wdtadsvg-amrs-projects-d74c7769.vercel.app/" readonly>
+        </div>
+        
+        <div>
+            <strong>Debug Page:</strong><br>
+            <input type="text" class="url-input" value="https://test-6wdtadsvg-amrs-projects-d74c7769.vercel.app/debug-og" readonly>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 Testing Tools</h2>
+        
+        <h3>1. Facebook Sharing Debugger (Also used by WhatsApp)</h3>
+        <p>This is the most important test since WhatsApp uses Facebook's crawler:</p>
+        <button onclick="window.open('https://developers.facebook.com/tools/debug/', '_blank')">
+            Open Facebook Debugger
+        </button>
+        
+        <h3>2. LinkedIn Post Inspector</h3>
+        <button onclick="window.open('https://www.linkedin.com/post-inspector/', '_blank')">
+            Open LinkedIn Inspector
+        </button>
+        
+        <h3>3. Twitter Card Validator</h3>
+        <button onclick="window.open('https://cards-dev.twitter.com/validator', '_blank')">
+            Open Twitter Validator
+        </button>
+        
+        <h3>4. WhatsApp Direct Test</h3>
+        <p>Send one of your URLs to a WhatsApp chat to see the actual preview.</p>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ What Should Work Now</h2>
+        <ul>
+            <li><strong>Image:</strong> Should show your og-image.png</li>
+            <li><strong>Title:</strong> Should show proper page titles</li>
+            <li><strong>Description:</strong> Should show page descriptions</li>
+            <li><strong>URL:</strong> Should show the correct Vercel URL</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 If Still Not Working</h2>
+        <p>If you're still having issues:</p>
+        <ol>
+            <li><strong>Wait 5-10 minutes</strong> - Vercel needs time to deploy</li>
+            <li><strong>Clear cache in Facebook Debugger</strong> - Click "Scrape Again"</li>
+            <li><strong>Check image accessibility</strong> - Make sure your og-image.png is public</li>
+            <li><strong>Try incognito mode</strong> - Test in a private browser window</li>
+        </ol>
+    </div>
+
+    <script>
+        // Auto-select text when clicking on input fields
+        document.querySelectorAll('.url-input').forEach(input => {
+            input.addEventListener('click', function() {
+                this.select();
+            });
+        });
+    </script>
+</body>
+</html>
