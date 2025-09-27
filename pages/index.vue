@@ -58,42 +58,22 @@
 </template>
 
 <script setup>
-// Set comprehensive SEO meta tags for social media sharing
-useSeoMeta({
+// Use the social meta composable
+const socialMeta = useSocialMeta({
   title: 'My Website - Welcome to Amazing Content',
   description: 'Welcome to my website. Discover amazing content, read our latest blog posts about web development, and explore modern frontend technologies.',
-  keywords: 'website, web development, blog, vue.js, nuxt, frontend, javascript',
-  
-  // Open Graph tags for Facebook, WhatsApp, LinkedIn, etc.
-  ogTitle: 'My Website - Welcome to Amazing Content',
-  ogDescription: 'Welcome to my website. Discover amazing content, read our latest blog posts about web development, and explore modern frontend technologies.',
-  ogImage: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=630&fit=crop&crop=entropy&auto=format&q=80',
-  ogImageAlt: 'Welcome page of my website with modern design',
-  ogUrl: 'https://your-nuxt-app.vercel.app',
-  ogType: 'website',
-  ogSiteName: 'My Website',
-  
-  // Twitter Card tags
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'My Website - Welcome to Amazing Content',
-  twitterDescription: 'Welcome to my website. Discover amazing content, read our latest blog posts about web development.',
-  twitterImage: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=630&fit=crop&crop=entropy&auto=format&q=80',
-  twitterImageAlt: 'Welcome page of my website with modern design',
-  twitterSite: '@yourhandle', // Replace with your Twitter handle
-  twitterCreator: '@yourhandle', // Replace with your Twitter handle
-  
-  // Additional meta tags
-  robots: 'index, follow',
-  author: 'Your Name',
-  publisher: 'My Website',
+  type: 'website'
 })
+
+// Set comprehensive SEO meta tags for social media sharing
+useSeoMeta(socialMeta)
 
 // Set additional head tags
 useHead({
   link: [
     {
       rel: 'canonical',
-      href: 'https://your-nuxt-app.vercel.app'
+      href: socialMeta.ogUrl
     }
   ]
 })

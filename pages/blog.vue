@@ -58,42 +58,22 @@
 </template>
 
 <script setup>
-// Set comprehensive SEO meta tags for social media sharing
-useSeoMeta({
+// Use the social meta composable
+const socialMeta = useSocialMeta({
   title: 'Blog - Latest Articles & Insights',
   description: 'Read our latest blog posts about web development, Vue.js, Nuxt, and modern frontend technologies. Stay updated with expert insights and tutorials.',
-  keywords: 'blog, web development, vue.js, nuxt, frontend, javascript, tutorials',
-  
-  // Open Graph tags for Facebook, WhatsApp, LinkedIn, etc.
-  ogTitle: 'Blog - Latest Articles & Insights',
-  ogDescription: 'Read our latest blog posts about web development, Vue.js, Nuxt, and modern frontend technologies. Stay updated with expert insights and tutorials.',
-  ogImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop&crop=entropy&auto=format&q=80',
-  ogImageAlt: 'Blog page with latest articles about web development',
-  ogUrl: 'https://your-nuxt-app.vercel.app/blog',
-  ogType: 'website',
-  ogSiteName: 'My Website',
-  
-  // Twitter Card tags
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Blog - Latest Articles & Insights',
-  twitterDescription: 'Read our latest blog posts about web development, Vue.js, Nuxt, and modern frontend technologies.',
-  twitterImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop&crop=entropy&auto=format&q=80',
-  twitterImageAlt: 'Blog page with latest articles about web development',
-  twitterSite: '@yourhandle', // Replace with your Twitter handle
-  twitterCreator: '@yourhandle', // Replace with your Twitter handle
-  
-  // Additional meta tags
-  robots: 'index, follow',
-  author: 'Your Name',
-  publisher: 'My Website',
+  type: 'website'
 })
+
+// Set comprehensive SEO meta tags for social media sharing
+useSeoMeta(socialMeta)
 
 // Set additional head tags
 useHead({
   link: [
     {
       rel: 'canonical',
-      href: 'https://your-nuxt-app.vercel.app/blog'
+      href: socialMeta.ogUrl
     }
   ]
 })
