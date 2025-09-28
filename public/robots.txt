@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://test-20wcmv1m7-amrs-projects-d74c7769.vercel.app/sitemap.xml
+Sitemap: https://test-ten-navy-64.vercel.app/sitemap.xml
 
 # Crawl delay
 Crawl-delay: 1

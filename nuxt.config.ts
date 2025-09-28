@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   
   // Site configuration for better SEO
   site: {
-    url: 'https://test-20wcmv1m7-amrs-projects-d74c7769.vercel.app',
+    url: 'https://test-ten-navy-64.vercel.app',
     name: 'My Blog Website',
     description: 'A modern blog about web development, Vue.js, Nuxt, and frontend technologies.',
     defaultLocale: 'en'
@@ -62,7 +62,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'canonical', href: 'https://test-20wcmv1m7-amrs-projects-d74c7769.vercel.app' }
+        { rel: 'canonical', href: 'https://test-ten-navy-64.vercel.app' }
       ]
     }
   },
@@ -70,7 +70,7 @@ export default defineNuxtConfig({
   // Runtime config for environment variables
   runtimeConfig: {
     public: {
-      siteUrl: 'https://test-20wcmv1m7-amrs-projects-d74c7769.vercel.app',
+      siteUrl: 'https://test-ten-navy-64.vercel.app',
       siteName: 'My Blog Website',
       siteDescription: 'A modern blog about web development, Vue.js, Nuxt, and frontend technologies.',
       language: 'en'

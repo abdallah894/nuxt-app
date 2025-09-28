@@ -10,7 +10,7 @@ export const useSocialMeta = (options: {
   
   // Get the current URL properly with better fallbacks
   const getFullUrl = (path?: string) => {
-    const baseUrl = config.public.siteUrl || 'https://test-20wcmv1m7-amrs-projects-d74c7769.vercel.app'
+    const baseUrl = config.public.siteUrl || 'https://test-ten-navy-64.vercel.app'
     const currentPath = path || route.path
     
     // Ensure proper URL formation
@@ -25,7 +25,7 @@ export const useSocialMeta = (options: {
     if (imagePath.startsWith('http')) {
       return imagePath // Already absolute
     }
-    const baseUrl = config.public.siteUrl || 'https://test-20wcmv1m7-amrs-projects-d74c7769.vercel.app'
+    const baseUrl = config.public.siteUrl || 'https://test-ten-navy-64.vercel.app'
     const cleanBaseUrl = baseUrl.replace(/\/$/, '') // Remove trailing slash
     const cleanImagePath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`
     return `${cleanBaseUrl}${cleanImagePath}`
