@@ -142,6 +142,7 @@ const blogPosts = {
     id: 'getting-started-nuxt-3',
     title: 'Getting Started with Nuxt 3: A Complete Guide',
     excerpt: 'Learn the fundamentals of Nuxt 3 and discover how to build modern, performant web applications with this powerful Vue.js framework.',
+    ogImage: '/og-image.png',
     content: `
       <h2>Introduction to Nuxt 3</h2>
       <p>Nuxt 3 represents a major evolution in the Vue.js ecosystem, bringing enhanced performance, improved developer experience, and modern web standards to the forefront. Built on top of Vue 3, Nuxt 3 leverages the Composition API, improved TypeScript support, and a new server engine called Nitro.</p>
@@ -182,6 +183,7 @@ npm run dev</code></pre>
     id: 'vue3-composition-api',
     title: 'Mastering Vue 3 Composition API',
     excerpt: 'Dive deep into Vue 3\'s Composition API and learn how to write more maintainable and reusable Vue.js code.',
+    ogImage: '/og-image.png',
     content: `
       <h2>Understanding the Composition API</h2>
       <p>The Vue 3 Composition API represents a paradigm shift in how we write Vue components. Instead of organizing code by options (data, methods, computed), we can now organize code by logical concerns, making our components more maintainable and reusable.</p>
@@ -243,6 +245,7 @@ export default {
     id: 'tailwindcss-best-practices',
     title: 'TailwindCSS Best Practices for Scalable Projects',
     excerpt: 'Discover proven strategies and best practices for using TailwindCSS in large-scale projects while maintaining clean and maintainable code.',
+    ogImage: '/og-image.png',
     content: `
       <h2>Introduction to TailwindCSS</h2>
       <p>TailwindCSS has revolutionized how we approach CSS by providing a utility-first framework that enables rapid UI development. However, to harness its full potential in large projects, it's essential to follow best practices that ensure maintainability and scalability.</p>
@@ -331,11 +334,11 @@ const formatDate = (dateString) => {
   })
 }
 
-// SEO Meta tags using the social meta composable
+// SEO Meta tags using the social meta composable with local OG images
 const socialMeta = useSocialMeta({
   title: `${blogPost.title} | Blog`,
   description: blogPost.excerpt,
-  image: blogPost.featuredImage,
+  image: blogPost.ogImage || '/og-image.png',
   type: 'article',
   path: `/blog/${blogId}`
 })

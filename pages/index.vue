@@ -61,22 +61,60 @@
 // Import the social meta composable
 import { useSocialMeta } from '~/composables/useSocialMeta'
 
-// Use the social meta composable
+// Use the social meta composable with enhanced SEO
 const socialMeta = useSocialMeta({
-  title: 'My Website - Welcome to Amazing Content',
-  description: 'Welcome to my website. Discover amazing content, read our latest blog posts about web development, and explore modern frontend technologies.',
-  type: 'website'
+  title: 'My Blog Website - Web Development & Modern Frontend',
+  description: 'Discover expert insights on web development, Vue.js, Nuxt, and modern frontend technologies. Read our latest blog posts and tutorials.',
+  type: 'website',
+  path: '/'
 })
 
 // Set comprehensive SEO meta tags for social media sharing
-useSeoMeta(socialMeta)
+useSeoMeta({
+  ...socialMeta,
+  keywords: 'web development, blog, vue.js, nuxt, frontend, javascript, programming, tutorial, modern web',
+})
 
-// Set additional head tags
+// Set additional head tags with performance optimizations
 useHead({
+  title: 'My Blog Website - Web Development & Frontend Tutorials',
   link: [
     {
       rel: 'canonical',
       href: socialMeta.ogUrl
+    },
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.googleapis.com'
+    },
+    {
+      rel: 'dns-prefetch',
+      href: 'https://images.unsplash.com'
+    }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'My Blog Website',
+        description: 'A modern blog about web development, Vue.js, Nuxt, and frontend technologies.',
+        url: socialMeta.ogUrl,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${socialMeta.ogUrl}/search?q={search_term_string}`,
+          'query-input': 'required name=search_term_string'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'My Blog Website',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${socialMeta.ogUrl}/og-image.png`
+          }
+        }
+      })
     }
   ]
 })

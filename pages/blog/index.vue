@@ -67,22 +67,67 @@
 // Import the social meta composable
 import { useSocialMeta } from '~/composables/useSocialMeta'
 
-// Use the social meta composable
+// Use the social meta composable with enhanced SEO
 const socialMeta = useSocialMeta({
-  title: 'Blog - Latest Articles & Insights',
-  description: 'Read our latest blog posts about web development, Vue.js, Nuxt, and modern frontend technologies. Stay updated with expert insights and tutorials.',
-  type: 'website'
+  title: 'Blog - Latest Web Development Articles & Tutorials',
+  description: 'Read our latest blog posts about web development, Vue.js, Nuxt, TailwindCSS, and modern frontend technologies. Expert insights and step-by-step tutorials.',
+  type: 'website',
+  path: '/blog'
 })
 
 // Set comprehensive SEO meta tags for social media sharing
-useSeoMeta(socialMeta)
+useSeoMeta({
+  ...socialMeta,
+  keywords: 'blog, web development articles, vue.js tutorials, nuxt guide, frontend development, javascript tutorials',
+})
 
-// Set additional head tags
+// Set additional head tags with structured data
 useHead({
+  title: 'Blog - Latest Web Development Articles & Tutorials',
   link: [
     {
       rel: 'canonical',
       href: socialMeta.ogUrl
+    }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        name: 'My Blog Website - Blog',
+        description: 'Latest web development articles and tutorials',
+        url: socialMeta.ogUrl,
+        publisher: {
+          '@type': 'Organization',
+          name: 'My Blog Website',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${socialMeta.ogUrl.replace('/blog', '')}/og-image.png`
+          }
+        },
+        blogPost: [
+          {
+            '@type': 'BlogPosting',
+            headline: 'Getting Started with Nuxt 3: A Complete Guide',
+            url: `${socialMeta.ogUrl}/getting-started-nuxt-3`,
+            datePublished: '2024-03-15'
+          },
+          {
+            '@type': 'BlogPosting', 
+            headline: 'Mastering Vue 3 Composition API',
+            url: `${socialMeta.ogUrl}/vue3-composition-api`,
+            datePublished: '2024-03-10'
+          },
+          {
+            '@type': 'BlogPosting',
+            headline: 'TailwindCSS Best Practices for Scalable Projects',
+            url: `${socialMeta.ogUrl}/tailwindcss-best-practices`,
+            datePublished: '2024-03-05'
+          }
+        ]
+      })
     }
   ]
 })
