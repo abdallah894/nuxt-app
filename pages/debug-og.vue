@@ -25,8 +25,10 @@
         <p><strong>2. Facebook Debugger:</strong></p>
         <ul class="list-disc list-inside ml-4 space-y-1">
           <li>Go to <a href="https://developers.facebook.com/tools/debug/" target="_blank" class="underline">Facebook Sharing Debugger</a></li>
-          <li>Enter your page URL</li>
+          <li>Enter your page URL: <code class="bg-white px-2 py-1 rounded">{{ socialMeta.ogUrl }}</code></li>
           <li>Click "Debug" to see how Facebook/WhatsApp sees your page</li>
+          <li>If you see cached data, click "Scrape Again" to refresh</li>
+          <li>Check for any errors or warnings in the report</li>
         </ul>
 
         <p><strong>3. LinkedIn Inspector:</strong></p>

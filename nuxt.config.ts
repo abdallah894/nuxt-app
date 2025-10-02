@@ -58,7 +58,10 @@ export default defineNuxtConfig({
       meta: [
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'theme-color', content: '#3b82f6' },
-        { name: 'msapplication-TileColor', content: '#3b82f6' }
+        { name: 'msapplication-TileColor', content: '#3b82f6' },
+        { property: 'og:site_name', content: 'My Blog Website' },
+        { property: 'og:locale', content: 'en_US' },
+        { name: 'robots', content: 'index, follow' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

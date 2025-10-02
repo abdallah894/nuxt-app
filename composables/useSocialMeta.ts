@@ -47,10 +47,16 @@ export const useSocialMeta = (options: {
     ogImageAlt: `${options.title} - ${siteName}`,
     ogImageWidth: '1200',
     ogImageHeight: '630',
+    ogImageType: 'image/png',
     ogUrl: currentUrl,
     ogType: options.type || 'website',
     ogSiteName: siteName,
     ogLocale: 'en_US',
+    
+    // Facebook-specific tags
+    'fb:app_id': '123456789', // Replace with your Facebook App ID if you have one
+    'article:author': options.type === 'article' ? 'Blog Author' : undefined,
+    'article:publisher': options.type === 'article' ? siteName : undefined,
     
     // Twitter Card tags
     twitterCard: 'summary_large_image',
@@ -77,7 +83,12 @@ export const useSocialMeta = (options: {
       '@type': options.type === 'article' ? 'BlogPosting' : 'WebPage',
       headline: options.title,
       description: options.description,
-      image: ogImage,
+      image: {
+        '@type': 'ImageObject',
+        url: ogImage,
+        width: 1200,
+        height: 630
+      },
       url: currentUrl,
       publisher: {
         '@type': 'Organization',
