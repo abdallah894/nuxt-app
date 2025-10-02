@@ -338,7 +338,7 @@ const formatDate = (dateString) => {
 const socialMeta = useSocialMeta({
   title: `${blogPost.title} | Blog`,
   description: blogPost.excerpt,
-  image: blogPost.ogImage || '/og-image.png',
+  image: blogPost.featuredImage || '/og-image.png',
   type: 'article',
   path: `/blog/${blogId}`
 })
